@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const jwtSecret = 'jwt-secret';
+const tokenHeaderKey = 'token-header-key';
 
 app.use(cors());
 
@@ -62,7 +65,11 @@ app.post('/api/login', async (req, res) => {
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if (passwordMatch) {
-        res.status(200).json({ message: 'Login successful' });
+        const token = jwt.sign({} , jwtSecret , { expiresIn: '7d' });
+        res.status(200).json({
+          message: 'Login successful',
+          token: token,
+        });
       } else {
         res.status(401).json({ error: 'Incorrect password' });
       }
