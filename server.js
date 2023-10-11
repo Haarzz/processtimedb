@@ -9,11 +9,13 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const jwtSecret = 'jwt-secret';
 const tokenHeaderKey = 'token-header-key';
+const port = 4000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(__dirname));
 
-const db = mysql.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
@@ -21,7 +23,7 @@ const db = mysql.createConnection({
 });
 
 // Connect to MySQL
-db.connect((err) => {
+connection.connect((err) => {
   if (err) {
     console.error('Database connection failed:', err);
   } else {
@@ -35,7 +37,7 @@ app.use(bodyParser.json());
 
 // ************************************************** API ****************************************************************
 app.get('/api/alldata', (req, res) => {
-  db.query('SELECT * FROM proxim', (err, results) => {
+  connection.query('SELECT * FROM proxim', (err, results) => {
     if (err) {
       console.error('Error executing MySQL query:', err);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -49,7 +51,7 @@ app.get('/api/detail-model/:id' , (req , res) => {
   const id = req.params.id;
 
   const queryDataPertama = `SELECT * FROM proxim WHERE id = ${id}`;
-  db.query(queryDataPertama , (err , result) => {
+  connection.query(queryDataPertama , (err , result) => {
       res.json(result[0]);
   });
 });
@@ -61,7 +63,7 @@ app.get('/api/get-model/:id' , (req , res) => {
   
 
   const queryDataPertama = `SELECT * FROM proxim WHERE id = ${id}`;
-  db.query(queryDataPertama , (err , result) => {
+  connection.query(queryDataPertama , (err , result) => {
       
 
       res.json(result[0]);
@@ -76,7 +78,7 @@ const queryUpdate  = `
   WHERE ID = ${id}
 `;
 
-db.query(queryUpdate , (err , result) => {
+connection.query(queryUpdate , (err , result) => {
     console.log('berhasil update data');
     res.json({message : 'Berhasil update data'});
 });
@@ -85,10 +87,9 @@ db.query(queryUpdate , (err , result) => {
 
 app.post("/formData", (req, res) => {
 const formData = req.body
-// Insert the form data into the MySQL database
 console.log(formData)
 const sql = `INSERT INTO proxim (groupname, modelname, plan) VALUES ("${formData.group}", "${formData.model}", ${formData.plan})`;
-db.query(sql, (err, result) => {
+connection.query(sql, (err, result) => {
   if (err) res.send(err);
   console.log("Form data inserted");
   res.send("Form data inserted");
@@ -100,7 +101,7 @@ app.post('/api/register', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const sql = 'INSERT INTO db_login (username, password) VALUES (?, ?)';
-    db.query(sql, [username, hashedPassword], (err, result) => {
+    connection.query(sql, [username, hashedPassword], (err, result) => {
       if (err) {
         console.error('Registration error: ', err);
         res.status(500).json({ error: 'Registration failed' });
@@ -119,7 +120,7 @@ app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
 
   const sql = 'SELECT * FROM db_login WHERE username = ?';
-  db.query(sql, [username], async (err, results) => {
+  connection.query(sql, [username], async (err, results) => {
     if (err) {
       console.error('Login error: ', err);
       res.status(500).json({ error: 'Login failed' });
@@ -157,7 +158,7 @@ const io = new Server(
     }
 );
 
-const MQTT_BROKER = 'mqtt://0.tcp.ap.ngrok.io:12978';
+const MQTT_BROKER = 'mqtt://192.168.84.248;1883';
 const TOPIC_PROXIM = 'sensor/proxim';
 // const TOPIC_LED = 'sensor/led';
 const mqttClient = mqtt.connect(MQTT_BROKER);
@@ -200,7 +201,6 @@ app.post('/api/increment', (req, res) => {
 
 
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+server.listen(port, () => {
+  console.log(`Node.js server listening at http://localhost:${port}`);
 });
