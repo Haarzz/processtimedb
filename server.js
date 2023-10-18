@@ -4,7 +4,6 @@ async function initializeServer() {
   const bodyParser = require('body-parser');
   const app = express();
   const cors = require('cors');
-  const DBService = require("./Network_and_Database_Services/DBService");
   const MainController = require("./Controller/Controller.js");
   const {
     LoginController , RegisterController , InputNewModelController,
