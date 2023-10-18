@@ -1,9 +1,6 @@
+const mqtt = require('mqtt');
+const {Server} = require('socket.io');
 const createIOTServices = (httpServer) => {
-    const mqtt = require('mqtt');
-    const {Server} = require('socket.io');
-
-
-
     const socketIOServer = new Server(
         httpServer, {
             cors: {
@@ -13,10 +10,11 @@ const createIOTServices = (httpServer) => {
         }
     );
 
-    const MQTT_BROKER = 'mqtt://0.tcp.ap.ngrok.io:12978';
+    const MQTT_BROKER_URL = 'mqtt://0.tcp.ap.ngrok.io:12978';
     const TOPIC_PROXIM = 'sensor/proxim';
-// const TOPIC_LED = 'sensor/led';
-    const mqttClient = mqtt.connect(MQTT_BROKER);
+
+    console.log('Trying to connect to MQTT Broker...');
+    const mqttClient = mqtt.connect(MQTT_BROKER_URL);
 
     mqttClient.on('connect', () => {
         console.log('Connected to MQTT broker');

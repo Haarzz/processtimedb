@@ -7,6 +7,7 @@ const initializeDB = async () =>
             resolve(db);
         }
 
+        console.log('Trying to connect to MySQL database...')
         db = mysql.createConnection({
             host: 'localhost',
             user: 'root',
