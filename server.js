@@ -1,16 +1,16 @@
-async function initializeServer() {
-  const express = require('express');
-  const http = require('http');
-  const bodyParser = require('body-parser');
-  const app = express();
-  const cors = require('cors');
-  const MainController = require("./Controller/Controller.js");
-  const {
-    LoginController , RegisterController , InputNewModelController,
-    IncrementTransactionController, GetAllModelController, GetDetailModelController,
-  } = MainController;
-  const createIOTServices = require("./Network_and_Database_Services/IOTServices");
+const express = require('express');
+const http = require('http');
+const bodyParser = require('body-parser');
+const app = express();
+const cors = require('cors');
+const MainController = require("./Controller/Controller.js");
+const {
+  LoginController , RegisterController , InputNewModelController,
+  IncrementTransactionController, GetAllModelController, GetDetailModelController,
+} = MainController;
+const createIOTServices = require("./Network_and_Database_Services/IOTServices");
 
+async function initializeServer() {
   app.use(cors());
   app.use(express.json());
   app.use(bodyParser.urlencoded({extended: false}));
