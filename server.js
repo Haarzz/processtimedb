@@ -14,9 +14,6 @@ async function initializeServer() {
 
   app.use(cors());
   app.use(express.json());
-
-  const db = await DBService();
-
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json());
 
