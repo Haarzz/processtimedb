@@ -1,11 +1,12 @@
 const mysql = require("mysql");
 
 let db = null;
-const DBService = async () =>
+const initializeDB = async () =>
     new Promise((resolve , reject) => {
         if (db != null){
             resolve(db);
         }
+
         db = mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -24,4 +25,4 @@ const DBService = async () =>
         });
     });
 
-module.exports = DBService;
+module.exports = initializeDB;
