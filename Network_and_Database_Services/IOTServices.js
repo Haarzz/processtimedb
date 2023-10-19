@@ -10,7 +10,7 @@ const createIOTServices = (httpServer) => {
         }
     );
 
-    const MQTT_BROKER_URL = 'mqtt://0.tcp.ap.ngrok.io:12978';
+    const MQTT_BROKER_URL = 'mqtt://192.168.84.248:1883';
     const TOPIC_PROXIM = 'sensor/proxim';
 
     console.log('Trying to connect to MQTT Broker...');
