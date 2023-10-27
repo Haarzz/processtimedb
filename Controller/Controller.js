@@ -4,6 +4,7 @@ const GetDetailModelController = require("./Model/GetDetailModelController.js");
 const LoginController = require("./Authentication/LoginController.js");
 const IncrementTransactionController = require("./Model/IncrementTransactionController.js");
 const InputNewModelController = require("./Model/InputNewModelController.js");
+const ChangePassword = require("./Model/ChangePassword.js");
 
 const Controller = {
     RegisterController,
@@ -11,7 +12,8 @@ const Controller = {
     GetAllModelController,
     LoginController,
     IncrementTransactionController,
-    InputNewModelController
+    InputNewModelController,
+    ChangePassword
 };
 
 module.exports = Controller;

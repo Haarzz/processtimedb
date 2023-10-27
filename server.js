@@ -6,7 +6,7 @@ const cors = require('cors');
 const MainController = require("./Controller/Controller.js");
 const {
   LoginController , RegisterController , InputNewModelController,
-  IncrementTransactionController, GetAllModelController, GetDetailModelController,
+  IncrementTransactionController, GetAllModelController, GetDetailModelController, ChangePassword,
 } = MainController;
 const createIOTServices = require("./Network_and_Database_Services/IOTServices");
 const initializeDB = require("./Network_and_Database_Services/DBService");
@@ -25,6 +25,7 @@ async function initializeServer() {
   app.post("/formData", InputNewModelController);
   app.post('/api/register', RegisterController);
   app.post('/api/login', LoginController);
+  app.post('/api/change-password' , ChangePassword);
 
   const server = http.createServer(app);
   createIOTServices(server);

@@ -21,6 +21,7 @@ const LoginController = async (req, res) => {
                 const token = jwt.sign({}, jwtSecret, {expiresIn: '7d'});
                 res.status(200).json({
                     message: 'Login successful',
+                    nama: "M Hasbi",
                     token: token,
                 });
             } else {
