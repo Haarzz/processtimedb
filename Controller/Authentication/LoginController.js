@@ -21,8 +21,9 @@ const LoginController = async (req, res) => {
                 const token = jwt.sign({}, jwtSecret, {expiresIn: '7d'});
                 res.status(200).json({
                     message: 'Login successful',
-                    nama: "M Hasbi",
+                    nama: username,
                     token: token,
+                    userprofile: user.userprofile
                 });
             } else {
                 res.status(401).json({error: 'Incorrect password'});
