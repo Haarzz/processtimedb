@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -28,7 +29,7 @@ async function initializeServer() {
   app.post('/api/change-password' , ChangePassword);
 
   const server = http.createServer(app);
-  createIOTServices(server);
+  await createIOTServices(server);
 
   const PORT = process.env.PORT || 4000;
   server.listen(PORT, () => {
