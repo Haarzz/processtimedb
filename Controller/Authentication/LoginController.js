@@ -16,9 +16,8 @@ const LoginController = async (req, res) => {
         } else {
             const user = results[0];
             const passwordMatch = await bcrypt.compare(password, user.password);
-
             if (passwordMatch) {
-                const token = jwt.sign({}, jwtSecret, {expiresIn: '7d'});
+                const token = jwt.sign({username}, jwtSecret, {expiresIn: '7d'});
                 res.status(200).json({
                     message: 'Login successful',
                     nama: username,

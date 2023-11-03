@@ -7,7 +7,8 @@ const cors = require('cors');
 const MainController = require("./Controller/Controller.js");
 const {
   LoginController , RegisterController , InputNewModelController,
-  IncrementTransactionController, GetAllModelController, GetDetailModelController, ChangePassword,
+  IncrementTransactionController, GetAllModelController, GetDetailModelController, ChangePassword, 
+  DecodeJwtController
 } = MainController;
 const createIOTServices = require("./Network_and_Database_Services/IOTServices");
 const initializeDB = require("./Network_and_Database_Services/DBService");
