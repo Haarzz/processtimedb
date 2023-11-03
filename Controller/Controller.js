@@ -13,7 +13,7 @@ const Controller = {
     LoginController,
     IncrementTransactionController,
     InputNewModelController,
-    ChangePassword
+    ChangePassword,
 };
 
 module.exports = Controller;
