@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5071d9d-ee8d-46e1-9efd-6d47e397ce59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Migration/useRefreshDatabase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/Production_Monitoring/InputPlanModal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/Production_Monitoring/ProductionMonitoringPage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/Model/InputNewModelController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/.idea/Quality_Assurance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/.idea/Quality_Assurance.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Functionality/ProductionMonitoring/Publish_Increment.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Functionality/ProductionMonitoring/Publish_Increment.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Migration/refreshDatabase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Migration/refreshDatabase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Model/Proxim.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Model/Transaction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Seeder/userSeeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Database/Seeder/userSeeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/AllPages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/AllPages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/DashboardPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/DashboardPage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quality_Assurance/src/Testing_Utilities/Web_Pages/ProductionMonitoringPage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRouting/createAppRouting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Authentication/DecodeJwtController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Authentication/LoginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Authentication/LoginController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Authentication/RegisterController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Authentication/RegisterController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Model/ChangePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Model/ChangePassword.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Model/GetAllModelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Model/GetAllModelController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Model/GetDetailModelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Model/GetDetailModelController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Model/IncrementTransactionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Model/IncrementTransactionController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Model/InputNewModelController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network_and_Database_Services/DBService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Network_and_Database_Services/DBService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network_and_Database_Services/IOTServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/Network_and_Database_Services/IOTServices.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/cors/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/cors/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/cors/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/cors/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/cors/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/cors/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/cors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/cors/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2XdxP1h3TrU9nB2lmC00obOyZlA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/xampp/htdocs/Fan_Dashboard_PM_dan_KWH/Quality_Assurance",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\xampp\\htdocs\\Fan_Dashboard_PM_dan_KWH\\processtimedb\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5071d9d-ee8d-46e1-9efd-6d47e397ce59" name="Changes" comment="" />
+      <created>1698972729557</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698972729557</updated>
+      <workItem from="1698972730577" duration="1830000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

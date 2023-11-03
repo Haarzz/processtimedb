@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Documents/PROJECT_PANASONIC/IOT_Node_React/Prototype/.idea/Prototype.iml" filepath="$USER_HOME$/Documents/PROJECT_PANASONIC/IOT_Node_React/Prototype/.idea/Prototype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Quality_Assurance/.idea/Quality_Assurance.iml" filepath="$PROJECT_DIR$/../Quality_Assurance/.idea/Quality_Assurance.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/processtimedb.iml" filepath="$PROJECT_DIR$/.idea/processtimedb.iml" />
     </modules>
   </component>
