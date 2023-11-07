@@ -1,15 +1,15 @@
 import DBService from "../../Network_and_Database_Services/DBService";
 import {Request, Response} from "express";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
+
 const GetAllModelController = async (_req : Request, res: Response) => {
-    const db = await DBService();
-    db.query('SELECT * FROM proxim', (err, results) => {
-        if (err) {
-            console.error('Error executing MySQL query:', err);
-            res.status(500).json({error: 'Internal Server Error'});
-        } else {
-            res.json(results);
-        }
-    });
+    try {
+        const allModel = await prisma.proxim.findMany();
+        res.json(allModel);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export default GetAllModelController;

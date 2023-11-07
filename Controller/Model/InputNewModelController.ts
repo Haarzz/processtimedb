@@ -1,21 +1,24 @@
 import DBService from "../../Network_and_Database_Services/DBService";
 import {Request, Response} from "express";
-const InputNewModelController = async (req : Request, res : Response) => {
-    const formData : any = req.body
-    // Insert the form data into the MySQL database
-    console.log(formData)
-    const sql = `INSERT INTO proxim (groupname, modelname, plan, result) VALUES ("${formData.group}", "${formData.model}", ${formData.plan} , 0)`;
-    const db = await DBService();
-    db.query(sql, (err) => {
-        if (err) {
-            console.log(`Error inserting form data : ${err}`);
-            res.send(err);
-        }
-        else {
-            console.log("Form data inserted");
-            res.send("Form data inserted");
-        }
+import { PrismaClient } from "@prisma/client";
 
-    });
+const prisma = new PrismaClient();
+const InputNewModelController = async (req : Request, res : Response) => {
+    try {
+        const formData = req.body;
+        const intPlan = parseInt(formData.plan , 10);
+        const formInput = await prisma.proxim.create({
+            data: {
+                groupname : formData.group,
+                modelname : formData.model,
+                plan : intPlan,
+                result : 0
+            }
+        })
+        res.json(formInput)
+    }catch (err){
+        console.log(err)
+        res.status(500).json("Error Input Data")
+    }
 };
 export default InputNewModelController;

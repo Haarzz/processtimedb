@@ -12,7 +12,7 @@ const createIOTServices = async (httpServer : http.Server) => {
             }
         );
 
-        const MQTT_BROKER_URL = process.env.MQTT_URL || 'mqtt://192.168.84.248:1883';
+        const MQTT_BROKER_URL = process.env.MQTT_URL || 'mqtt://192.168.11.248:1883';
         const TOPIC_PROXIM = 'sensor/proxim';
 
         console.log('Trying to connect to MQTT Broker...');
@@ -21,7 +21,7 @@ const createIOTServices = async (httpServer : http.Server) => {
         mqttClient.on('connect', () => {
             console.log('Connected to MQTT broker');
             mqttClient.subscribe([TOPIC_PROXIM], () => {
-                console.log('berhasil subscribe');
+                console.log(`Subscribe to ${TOPIC_PROXIM}`);
             });
             mqttClient.on('message', (topic, payload) => {
                 console.log('Received Message:', payload.toString());

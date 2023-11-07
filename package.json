@@ -5,13 +5,15 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node server2",
+    "dev": "nodemon server2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.5.2",
+    "@types/node": "^20.8.10",
     "axios": "^1.5.1",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -36,6 +38,7 @@
     "@types/mysql": "^2.15.23",
     "@types/nodemon": "^1.19.4",
     "@types/socket.io": "^3.0.2",
+    "prisma": "^5.5.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }

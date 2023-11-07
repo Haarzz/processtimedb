@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 import express from "express";
 import http from "http";
 import bodyParser from "body-parser";
@@ -31,7 +31,7 @@ async function initializeServer() {
   app.post('/api/change-password' , ChangePassword);
 
   const server = http.createServer(app);
-  await createIOTServices(server);
+  createIOTServices(server);
 
   const PORT = (process.env.PORT as number | undefined) || 4000;
   const HOST = process.env.SERVER_HOST || '127.0.0.1';
