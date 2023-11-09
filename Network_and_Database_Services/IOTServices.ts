@@ -26,7 +26,8 @@ const createIOTServices = async (httpServer : http.Server) => {
             mqttClient.on('message', (topic, payload) => {
                 console.log('Received Message:', payload.toString());
 
-                socketIOServer.emit('message', payload.toString());
+                socketIOServer.emit("message", payload.toString());
+
             });
             resolve(null);
         });

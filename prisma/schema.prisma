@@ -3,22 +3,52 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
-model db_login {
-  id          Int    @id @default(autoincrement())
-  username    String @db.VarChar(255) @unique
-  password    String @db.VarChar(255)
-  userprofile String @db.VarChar(255)
+model arduino {
+  nama_arduino           String        @db.VarChar(255) @unique
+  usernameId             String
+  assigned_transaction   Int?         
+  assigned_transactionId transaction? @relation(fields: [assigned_transaction], references: [id])
+  user               user         @relation(fields: [usernameId], references: [username])
 }
 
-model proxim {
-  ID        Int      @id @default(autoincrement())
-  groupname String   @db.VarChar(255)
-  modelname String   @db.VarChar(255)
-  plan      Int
-  result    Int
-  timestamp DateTime @default(now()) @db.DateTime(0)
+model user {
+  username String @id @unique
+  password String
+  arduinos arduino[]
+}
+
+model transaction {
+  id             Int            @id @default(autoincrement())
+  id_model       Int            @unique
+  id_group       Int            @unique
+  plan           Int
+  actual         Int
+  created_at     DateTime       @default(now())
+  arduinos       arduino[]
+  scan_histories scan_history[]
+  group_id       group          @relation(fields: [id_group], references: [id])
+  model_id       model          @relation(fields: [id_model], references: [id])
+}
+
+model scan_history {
+  id              Int         @id @default(autoincrement())
+  id_transaction  Int
+  created_at      DateTime    @default(now())
+  id_transactions transaction @relation(fields: [id_transaction], references: [id])
+}
+
+model model {
+  id           Int          @id @default(autoincrement())
+  model_name   String       @unique
+  transactions transaction?
+}
+
+model group {
+  id           Int          @id @default(autoincrement())
+  group_name   String       @unique
+  transactions transaction?
 }
