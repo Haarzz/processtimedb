@@ -4,9 +4,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 const GetDetailModelController = async (req : Request, res : Response) => {
-    const detailModel = await prisma.proxim.findMany({
+    const detailModel = await prisma.transaction.findMany({
         select: {
-            ID : true,
+            id: true
         } 
     })
 }

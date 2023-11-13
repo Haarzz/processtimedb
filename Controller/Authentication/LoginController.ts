@@ -10,7 +10,7 @@ const LoginController = async (req : Request , res : Response) => {
     const {username, password} = req.body;
 
     try {
-        const user = await prisma.db_login.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 username
             }

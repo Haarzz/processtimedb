@@ -8,15 +8,15 @@ datasource db {
 }
 
 model arduino {
-  nama_arduino           String        @db.VarChar(255) @unique
+  nama_arduino           String       @unique @db.VarChar(255)
   usernameId             String
-  assigned_transaction   Int?         
+  assigned_transaction   Int?
   assigned_transactionId transaction? @relation(fields: [assigned_transaction], references: [id])
-  user               user         @relation(fields: [usernameId], references: [username])
+  user                   user         @relation(fields: [usernameId], references: [username])
 }
 
 model user {
-  username String @id @unique
+  username String    @id @unique
   password String
   arduinos arduino[]
 }

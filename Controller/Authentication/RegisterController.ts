@@ -6,14 +6,23 @@ const prisma = new PrismaClient();
 
 
 const RegisterController = async (req : Request, res : Response) => {
-    const {username, password} = req.body;
+    
     try {
+        console.log(req.body)
+        const {username, password } = req.body;
+        console.log(req.body.arduinoName)
+        const arduinoNameList = req.body.arduinoName.map((value : any) => {return {nama_arduino: value.name}});
+        console.log(arduinoNameList)
         const HashedPassword = await bcrypt.hash(password, 10);
-        const user = await prisma.db_login.create({
+        const user = await prisma.user.create({
             data: {
                 username,
                 password : HashedPassword,
-                userprofile : username,
+                arduinos: {
+                    createMany : {
+                        data: arduinoNameList
+                    }
+                }
             }
         })
         res.json(user);

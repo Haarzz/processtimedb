@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 const ChangePassword = async (req : Request, res : Response) => {
   const { username, oldPassword, newPassword } = req.body;
   try {
-    const findUser = await prisma.db_login.findUnique({
+    const findUser = await prisma.user.findUnique({
       where: {
         username,
       }
@@ -16,7 +16,7 @@ const ChangePassword = async (req : Request, res : Response) => {
 
     if (isPasswordValid) {
       const hashedNewPassword = await bcrypt.hash(newPassword, 10);
-      const updatePasswordQuery = await prisma.db_login.update({
+      const updatePasswordQuery = await prisma.user.update({
         where: {
           username,
         }, data: {

@@ -5,14 +5,14 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 const InputNewModelController = async (req : Request, res : Response) => {
     try {
-        const formData = req.body;
-        const intPlan = parseInt(formData.plan , 10);
-        const formInput = await prisma.proxim.create({
+        const {group, model, plan} = req.body;
+        const intPlan = parseInt(plan , 10);
+        const formInput = await prisma.transaction.create({
             data: {
-                groupname : formData.group,
-                modelname : formData.model,
+                id_model : model,
+                id_group : group,
                 plan : intPlan,
-                result : 0
+                actual : 0
             }
         })
         res.json(formInput)

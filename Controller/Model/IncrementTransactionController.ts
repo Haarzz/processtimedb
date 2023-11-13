@@ -7,11 +7,11 @@ const prisma = new PrismaClient();
 const IncrementTransactionController = async (req : Request, res : Response) => {
     const id = req.params.id;
     const intID = parseInt(id, 10);
-    const updateQuery = await prisma.proxim.update({
+    const updateQuery = await prisma.transaction.update({
       where: {
-        ID : intID
+        id : intID
       }, data: {
-         result: {
+         actual: {
           increment: 1,
          }
       }

@@ -31,7 +31,7 @@ const createIOTServices = async (httpServer : http.Server) => {
             });
             resolve(null);
         });
-        mqttClient.on('offline' , () => reject('Gagal tersambung ke MQTT broker :('));
+        // mqttClient.on('offline' , () => reject('Gagal tersambung ke MQTT broker :('));
     });
 };
 

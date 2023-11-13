@@ -7,15 +7,13 @@ import MainController from "./Controller/Controller";
 const {
   LoginController , RegisterController , InputNewModelController,
   IncrementTransactionController, GetAllModelController, GetDetailModelController,
-  ChangePassword
+  ChangePassword, AddGroup, AddModel
 } = MainController;
 import createIOTServices from "./Network_and_Database_Services/IOTServices";
-import initializeDB from "./Network_and_Database_Services/DBService";
 
 const app = express();
 dotenv.config();
 async function initializeServer() {
-  await initializeDB();
   app.use(cors());
   app.use(express.json());
   app.use(bodyParser.urlencoded({extended: false}));
@@ -29,6 +27,10 @@ async function initializeServer() {
   app.post('/api/register', RegisterController);
   app.post('/api/login', LoginController);
   app.post('/api/change-password' , ChangePassword);
+  app.post('/api/add-model', AddModel);
+  app.post('/api/add-group', AddGroup);
+  app.get('/api/nama-endpoint/:username');
+  
 
   const server = http.createServer(app);
   createIOTServices(server);
