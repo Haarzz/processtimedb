@@ -7,6 +7,7 @@ import InputNewModelController from "./Model/InputNewModelController";
 import ChangePassword from "./Model/ChangePassword";
 import AddGroup from "./Model/AddGroup";
 import AddModel from "./Model/AddModel";
+import GetFormData from "./Model/GetFormData";
 
 const Controller = {
     RegisterController,
@@ -17,7 +18,8 @@ const Controller = {
     InputNewModelController,
     ChangePassword,
     AddGroup,
-    AddModel
+    AddModel,
+    GetFormData
 };
 
 export default Controller;

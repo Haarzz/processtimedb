@@ -4,10 +4,12 @@ import http from "http";
 import bodyParser from "body-parser";
 import cors from 'cors';
 import MainController from "./Controller/Controller";
+import {Request, Response} from "express";
+import { PrismaClient } from "@prisma/client";
 const {
   LoginController , RegisterController , InputNewModelController,
   IncrementTransactionController, GetAllModelController, GetDetailModelController,
-  ChangePassword, AddGroup, AddModel
+  ChangePassword, AddGroup, AddModel, GetFormData
 } = MainController;
 import createIOTServices from "./Network_and_Database_Services/IOTServices";
 
@@ -29,7 +31,25 @@ async function initializeServer() {
   app.post('/api/change-password' , ChangePassword);
   app.post('/api/add-model', AddModel);
   app.post('/api/add-group', AddGroup);
-  app.get('/api/nama-endpoint/:username');
+  app.get('/api/get-data/:username', GetFormData);
+  // app.get('/gadungan/:username' , async function(req : Request , res: Response){
+  //   const username = req.params.username;
+  //   const prisma = new PrismaClient();
+  //   const arduinoWithTransaksi = await prisma.arduino.findMany({
+  //       include: {
+  //           assigned_transactionId: {
+  //               include: {
+  //                   group_id: true,
+  //                   model_id: true,
+  //               }
+  //           }
+  //       },
+  //       where: {
+  //         username
+  //       }
+  //   });
+  //   res.json(arduinoWithTransaksi)
+  // })
   
 
   const server = http.createServer(app);

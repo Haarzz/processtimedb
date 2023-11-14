@@ -4,14 +4,16 @@ import bcrypt from "bcrypt"
 async function main(){
     const prisma = new PrismaClient();
     const password = await bcrypt.hash("admin" , 10);
-    const arduinoName = "aaaaa" //dari request body API ""
+    const arduinoName = "" //dari request body API ""
     const createUser = await prisma.user.create({
         data: {
             username: "hasbi",
             password,
             arduinos: {
                 createMany: {
-                    data: [{nama_arduino: arduinoName},
+                    data: [{nama_arduino: "Final Assembly 1"},
+                    {nama_arduino: "Final Assembly 2"},
+                    {nama_arduino: "Final Assembly 3"},
                             ]
 
                 }
@@ -32,7 +34,11 @@ async function main(){
     const createGroup = await prisma.group.createMany({
         data: [
             {group_name: "Group Assembly"},
-            {group_name: "Group Motor"}
+            {group_name: "Group Motor 1"},
+            {group_name: "Group Motor 2"},
+            {group_name: "Group Motor 3"},
+            {group_name: "Group Motor 4"},
+            {group_name: "Group Motor 5"}
         ]
     })
     console.log(createUser)

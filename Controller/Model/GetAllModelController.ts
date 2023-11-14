@@ -3,7 +3,7 @@ import {Request, Response} from "express";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-const GetAllModelController = async (_req : Request, res: Response) => {
+const GetAllModelController = async (req : Request, res: Response) => {
     try {
         const allModel = await prisma.transaction.findMany();
         res.json(allModel);
