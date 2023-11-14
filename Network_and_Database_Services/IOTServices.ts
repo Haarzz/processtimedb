@@ -43,11 +43,30 @@ const createIOTServices = async (httpServer : http.Server) => {
                     where: {
                         id: arduino!.assigned_transaction!
                     }
+                });
+
+                const user = await prisma.user.findUnique({
+                    where: {
+                        username: arduino!.username
+                    }
                 })
+                const allArduino = await prisma.arduino.findMany({
+                    include: {
+                        assigned_transactionId: {
+                            include: {
+                                group_id: true,
+                                model_id: true,
+                            }
+                        }
+                    },
+                    where: {
+                      username: user!.username
+                    }
+                });
 
                 console.log('Received Message from :', namaArduino);
                 
-                socketIOServer.emit(namaArduino, 'Pesan dari MQTT');
+                socketIOServer.emit(namaArduino, {allArduino});
 
             });
             resolve(null);
