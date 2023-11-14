@@ -3,7 +3,7 @@ import GetAllModelController from "./Model/GetAllModelController";
 import GetDetailModelController from "./Model/GetDetailModelController";
 import LoginController from "./Authentication/LoginController";
 import IncrementTransactionController from "./Model/IncrementTransactionController";
-import InputNewModelController from "./Model/InputNewModelController";
+import InputNewTransactionController from "./Model/InputNewModelController";
 import ChangePassword from "./Model/ChangePassword";
 import AddGroup from "./Model/AddGroup";
 import AddModel from "./Model/AddModel";
@@ -15,7 +15,7 @@ const Controller = {
     GetAllModelController,
     LoginController,
     IncrementTransactionController,
-    InputNewModelController,
+    InputNewTransactionController,
     ChangePassword,
     AddGroup,
     AddModel,

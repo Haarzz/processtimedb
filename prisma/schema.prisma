@@ -23,8 +23,8 @@ model user {
 
 model transaction {
   id             Int            @id @default(autoincrement())
-  id_model       Int            @unique
-  id_group       Int            @unique
+  id_model       Int            
+  id_group       Int          
   plan           Int
   actual         Int
   created_at     DateTime       @default(now())
@@ -44,11 +44,11 @@ model scan_history {
 model model {
   id           Int          @id @default(autoincrement())
   model_name   String       @unique
-  transactions transaction?
+  transactions transaction[]
 }
 
 model group {
   id           Int          @id @default(autoincrement())
   group_name   String       @unique
-  transactions transaction?
+  transactions transaction[]
 }

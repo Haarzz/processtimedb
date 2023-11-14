@@ -1,6 +1,8 @@
 import * as mqtt from 'mqtt';
 import {Server} from 'socket.io';
 import http from "http";
+import { PrismaClient } from '@prisma/client';
+import myPrismaClient from '../MyPrismaClient';
 const createIOTServices = async (httpServer : http.Server) => {
     return new Promise((resolve , reject) => {
         const socketIOServer = new Server(
@@ -23,10 +25,29 @@ const createIOTServices = async (httpServer : http.Server) => {
             mqttClient.subscribe([TOPIC_PROXIM], () => {
                 console.log(`Subscribe to ${TOPIC_PROXIM}`);
             });
-            mqttClient.on('message', (topic, payload) => {
-                console.log('Received Message:', payload.toString());
+            mqttClient.on('message', async (_topic, payload) => {
+                const namaArduino = payload.toString();
 
-                socketIOServer.emit("message", payload.toString());
+                const prisma = myPrismaClient;
+                const arduino = await prisma.arduino.findUnique({
+                    where: {
+                        nama_arduino: namaArduino,
+                    },
+                });
+                await prisma.transaction.update({
+                    data: {
+                        actual: {
+                            increment: 1
+                        }
+                    },
+                    where: {
+                        id: arduino!.assigned_transaction!
+                    }
+                })
+
+                console.log('Received Message from :', namaArduino);
+                
+                socketIOServer.emit(namaArduino, 'Pesan dari MQTT');
 
             });
             resolve(null);
