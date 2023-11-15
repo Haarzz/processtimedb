@@ -1,10 +1,9 @@
 import * as mqtt from 'mqtt';
 import {Server} from 'socket.io';
 import http from "http";
-import { PrismaClient } from '@prisma/client';
 import myPrismaClient from '../MyPrismaClient';
 const createIOTServices = async (httpServer : http.Server) => {
-    return new Promise((resolve , reject) => {
+    return new Promise((resolve , _reject) => {
         const socketIOServer = new Server(
             httpServer, {
                 cors: {
@@ -45,12 +44,10 @@ const createIOTServices = async (httpServer : http.Server) => {
                     }
                 });
 
-                const user = await prisma.user.findUnique({
+                const updatedArduino = await prisma.arduino.findUnique({
                     where: {
-                        username: arduino!.username
-                    }
-                })
-                const allArduino = await prisma.arduino.findMany({
+                        nama_arduino : namaArduino
+                    },
                     include: {
                         assigned_transactionId: {
                             include: {
@@ -59,14 +56,11 @@ const createIOTServices = async (httpServer : http.Server) => {
                             }
                         }
                     },
-                    where: {
-                      username: user!.username
-                    }
                 });
 
                 console.log('Received Message from :', namaArduino);
                 
-                socketIOServer.emit(namaArduino, {allArduino});
+                socketIOServer.emit(namaArduino, {arduino: updatedArduino});
 
             });
             resolve(null);
