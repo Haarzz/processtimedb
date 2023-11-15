@@ -9,7 +9,7 @@ import AddGroup from "./Model/AddGroup";
 import AddModel from "./Model/AddModel";
 import GetFormData from "./Model/GetFormData";
 import GetDetailArduinoController from "./Arduino/GetDetailArduinoController";
-
+import GetTransactionByArduinoName from "./Arduino/GetTransactionByArduinoName";
 const Controller = {
     RegisterController,
     GetDetailModelController,
@@ -21,7 +21,8 @@ const Controller = {
     AddGroup,
     AddModel,
     GetFormData,
-    GetDetailArduinoController
+    GetDetailArduinoController,
+    GetTransactionByArduinoName
 };
 
 export default Controller;

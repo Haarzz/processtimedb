@@ -11,6 +11,7 @@ const {
   ChangePassword, AddGroup, AddModel, GetFormData , GetDetailArduinoController
 } = MainController;
 import createIOTServices from "./Network_and_Database_Services/IOTServices";
+import GetTransactionByArduinoName from "./Controller/Arduino/GetTransactionByArduinoName";
 
 const app = express();
 dotenv.config();
@@ -32,6 +33,7 @@ async function initializeServer() {
   app.post('/api/add-group', AddGroup);
   app.get('/api/get-data/:username', GetFormData);
   app.get('/api/get-detail-arduino/:nama_arduino' , GetDetailArduinoController);
+  app.get('/api/get-transaction-by-arduino/:nama_arduino' , GetTransactionByArduinoName);
   
 
   const server = http.createServer(app);

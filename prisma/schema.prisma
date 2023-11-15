@@ -8,11 +8,12 @@ datasource db {
 }
 
 model arduino {
-  nama_arduino           String       @unique @db.VarChar(255)
-  username             String
+  nama_arduino           String        @unique @db.VarChar(255)
+  username               String
   assigned_transaction   Int?
-  assigned_transactionId transaction? @relation(fields: [assigned_transaction], references: [id])
-  user                   user         @relation(fields: [username], references: [username])
+  assigned_transactionId transaction?  @relation("arduino_name", fields: [assigned_transaction], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user                   user          @relation(fields: [username], references: [username])
+  transaction            transaction[] @relation("assigned_arduino")
 }
 
 model user {
@@ -22,16 +23,18 @@ model user {
 }
 
 model transaction {
-  id             Int            @id @default(autoincrement())
-  id_model       Int            
-  id_group       Int          
-  plan           Int
-  actual         Int
-  created_at     DateTime       @default(now())
-  arduinos       arduino[]
-  scan_histories scan_history[]
-  group_id       group          @relation(fields: [id_group], references: [id])
-  model_id       model          @relation(fields: [id_model], references: [id])
+  id                Int            @id @default(autoincrement())
+  id_model          Int            
+  id_group          Int            
+  plan              Int
+  actual            Int
+  created_at        DateTime       @default(now())
+  arduinos          arduino[]      @relation("arduino_name")
+  scan_histories    scan_history[]
+  group_id          group          @relation(fields: [id_group], references: [id])
+  model_id          model          @relation(fields: [id_model], references: [id])
+  assign_arduino  String         @db.VarChar(255)
+  assigned_arduinos arduino        @relation("assigned_arduino", fields: [assign_arduino], references: [nama_arduino])
 }
 
 model scan_history {

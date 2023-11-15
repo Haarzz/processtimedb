@@ -12,6 +12,7 @@ const InputNewTransactionController = async (req : Request, res : Response) => {
                 id_group: group_id,
                 plan: intPlan,
                 actual: 0,
+                assign_arduino: arduino,
                 } 
         })
         console.log('disini berhasil ' , arduino)
@@ -20,7 +21,7 @@ const InputNewTransactionController = async (req : Request, res : Response) => {
                 nama_arduino: arduino
             },
             data: {
-                assigned_transaction: createTrans.id
+                assigned_transaction: createTrans.id,
             }
         })
         res.json({message: "Sukses buat transaksi"})

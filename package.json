@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.5.2",
+    "@prisma/client": "^5.6.0",
     "@types/node": "^20.8.10",
     "axios": "^1.5.1",
     "bcrypt": "^5.1.1",
