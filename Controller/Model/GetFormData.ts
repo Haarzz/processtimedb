@@ -9,14 +9,6 @@ const GetFormData = async (req : Request, res : Response) => {
     const allGroup = await prisma.group.findMany({
     })
     const allArduino = await prisma.arduino.findMany({
-        include: {
-            assigned_transactionId: {
-                include: {
-                    group_id: true,
-                    model_id: true,
-                }
-            }
-        },
         where: {
           username
         }

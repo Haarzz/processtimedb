@@ -8,6 +8,7 @@ import ChangePassword from "./Model/ChangePassword";
 import AddGroup from "./Model/AddGroup";
 import AddModel from "./Model/AddModel";
 import GetFormData from "./Model/GetFormData";
+import GetDetailArduinoController from "./Arduino/GetDetailArduinoController";
 
 const Controller = {
     RegisterController,
@@ -19,7 +20,8 @@ const Controller = {
     ChangePassword,
     AddGroup,
     AddModel,
-    GetFormData
+    GetFormData,
+    GetDetailArduinoController
 };
 
 export default Controller;

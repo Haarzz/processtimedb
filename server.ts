@@ -8,7 +8,7 @@ import MainController from "./Controller/Controller";
 const {
   LoginController , RegisterController , InputNewTransactionController,
   IncrementTransactionController, GetAllModelController, GetDetailModelController,
-  ChangePassword, AddGroup, AddModel, GetFormData
+  ChangePassword, AddGroup, AddModel, GetFormData , GetDetailArduinoController
 } = MainController;
 import createIOTServices from "./Network_and_Database_Services/IOTServices";
 
@@ -31,6 +31,7 @@ async function initializeServer() {
   app.post('/api/add-model', AddModel);
   app.post('/api/add-group', AddGroup);
   app.get('/api/get-data/:username', GetFormData);
+  app.get('/api/get-detail-arduino/:nama_arduino' , GetDetailArduinoController);
   
 
   const server = http.createServer(app);
