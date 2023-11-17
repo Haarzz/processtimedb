@@ -10,6 +10,8 @@ import AddModel from "./Model/AddModel";
 import GetFormData from "./Model/GetFormData";
 import GetDetailArduinoController from "./Arduino/GetDetailArduinoController";
 import GetTransactionByArduinoName from "./Arduino/GetTransactionByArduinoName";
+import UpdateAssignedTransaction from "./Arduino/UpdateAssignedTransaction";
+
 const Controller = {
     RegisterController,
     GetDetailModelController,
@@ -22,7 +24,8 @@ const Controller = {
     AddModel,
     GetFormData,
     GetDetailArduinoController,
-    GetTransactionByArduinoName
+    GetTransactionByArduinoName,
+    UpdateAssignedTransaction
 };
 
 export default Controller;
