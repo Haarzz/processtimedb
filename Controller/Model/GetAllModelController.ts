@@ -1,8 +1,7 @@
 import DBService from "../../Network_and_Database_Services/DBService";
 import {Request, Response} from "express";
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
-
+import myPrismaClient from "../../MyPrismaClient";
+const prisma = myPrismaClient;
 const GetAllModelController = async (req : Request, res: Response) => {
     try {
         const allModel = await prisma.transaction.findMany();

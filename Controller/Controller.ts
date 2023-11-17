@@ -11,6 +11,7 @@ import GetFormData from "./Model/GetFormData";
 import GetDetailArduinoController from "./Arduino/GetDetailArduinoController";
 import GetTransactionByArduinoName from "./Arduino/GetTransactionByArduinoName";
 import UpdateAssignedTransaction from "./Arduino/UpdateAssignedTransaction";
+import GetAllTransaction from "./Model/GetAllTransaction";
 
 const Controller = {
     RegisterController,
@@ -25,7 +26,8 @@ const Controller = {
     GetFormData,
     GetDetailArduinoController,
     GetTransactionByArduinoName,
-    UpdateAssignedTransaction
+    UpdateAssignedTransaction,
+    GetAllTransaction,
 };
 
 export default Controller;

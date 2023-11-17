@@ -18,7 +18,7 @@ const LoginController = async (req : Request , res : Response) => {
         if (await bcrypt.compare(password, user!.password)){
             const token = jwt.sign(user!, jwtSecret, {expiresIn: '7d'});
             res.status(200).json({
-                message: 'Login successful',
+                message: 'Login successful. Redirecting...',
                 nama: username,
                 token: token,
             });
