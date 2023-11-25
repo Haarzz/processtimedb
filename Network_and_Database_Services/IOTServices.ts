@@ -13,7 +13,7 @@ const createIOTServices = async (httpServer : http.Server) => {
             }
         );
 
-        const MQTT_BROKER_URL = process.env.MQTT_URL || 'mqtt://192.168.11.248:1883';
+        const MQTT_BROKER_URL = process.env.MQTT_URL || 'mqtt://127.0.0.1:1883';
         const TOPIC_PROXIM = 'sensor/proxim';
 
         console.log('Trying to connect to MQTT Broker...');

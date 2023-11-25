@@ -4,7 +4,7 @@ import myPrismaClient from "../../MyPrismaClient";
 const prisma = myPrismaClient;
 const GetAllModelController = async (req : Request, res: Response) => {
     try {
-        const allModel = await prisma.transaction.findMany();
+        const allModel = await prisma.powermeter.findMany()
         res.json(allModel);
     } catch (err) {
         console.log(err);

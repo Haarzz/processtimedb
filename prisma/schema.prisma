@@ -1,10 +1,12 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
 }
 
 datasource db {
   provider = "sqlserver"
   url      = env("DATABASE_URL")
+  schemas  = ["prodmon", "energycons"]
 }
 
 model arduino {
@@ -14,18 +16,22 @@ model arduino {
   assigned_transactionId transaction?  @relation("arduino_name", fields: [assigned_transaction], references: [id], onDelete: NoAction, onUpdate: NoAction)
   user                   user          @relation(fields: [username], references: [username])
   transaction            transaction[] @relation("assigned_arduino")
+
+  @@schema("prodmon")
 }
 
 model user {
   username String    @id @unique
   password String
   arduinos arduino[]
+
+  @@schema("prodmon")
 }
 
 model transaction {
   id                Int            @id @default(autoincrement())
-  id_model          Int            
-  id_group          Int            
+  id_model          Int
+  id_group          Int
   plan              Int
   actual            Int
   created_at        DateTime       @default(now())
@@ -33,8 +39,10 @@ model transaction {
   scan_histories    scan_history[]
   group_id          group          @relation(fields: [id_group], references: [id])
   model_id          model          @relation(fields: [id_model], references: [id])
-  assign_arduino  String         @db.VarChar(255)
+  assign_arduino    String         @db.VarChar(255)
   assigned_arduinos arduino        @relation("assigned_arduino", fields: [assign_arduino], references: [nama_arduino])
+
+  @@schema("prodmon")
 }
 
 model scan_history {
@@ -42,16 +50,34 @@ model scan_history {
   id_transaction  Int
   created_at      DateTime    @default(now())
   id_transactions transaction @relation(fields: [id_transaction], references: [id])
+
+  @@schema("prodmon")
 }
 
 model model {
-  id           Int          @id @default(autoincrement())
-  model_name   String       @unique
+  id           Int           @id @default(autoincrement())
+  model_name   String        @unique
   transactions transaction[]
+
+  @@schema("prodmon")
 }
 
 model group {
-  id           Int          @id @default(autoincrement())
-  group_name   String       @unique
+  id           Int           @id @default(autoincrement())
+  group_name   String        @unique
   transactions transaction[]
+
+  @@schema("prodmon")
+}
+
+// END OF PRODMON DATABASE
+
+model powermeter {
+  id        Int   @id @default(autoincrement())
+  voltage   Float
+  ampere    Float
+  power     Float
+  frequency Float
+  time      DateTime @default(now())
+  @@schema("energycons")
 }
